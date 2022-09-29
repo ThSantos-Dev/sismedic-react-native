@@ -1,112 +1,91 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from "react";
+import { ImageBackground, Image, StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+// Constantes
+import COLORS from "./src/assets/color/Colors";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// Components
+import Splash from "./src/views/Splash/Splash";
+import Input from "./src/components/Input/Input";
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+// Ícones
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconZocial from 'react-native-vector-icons/Zocial';
+import IconFoundation from 'react-native-vector-icons/Foundation'
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Accept from "./src/components/Accept/Accept";
+import Button from "./src/components/Button/Button";
+import Register from "./src/views/Register/Register";
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const App = () => (
+  <SafeAreaView style={styles.safeArea}>
+    {/* <Splash /> */}
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+    <ScrollView style={styles.scrollView}>
+      <Register />
+    </ScrollView>
+  </SafeAreaView>
+);
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  safeArea: {
+    flex: 1,
+    flexDirection: "column"
   },
-  sectionTitle: {
+
+  scrollView: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: COLORS.white
+  },
+
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: COLORS.lightBlue
+  },
+
+  content: {
+    flex: 1,
+    width: '100%',
+
+    alignSelf: "flex-end",
+
+    paddingHorizontal: 18,
+    paddingTop: 38,
+    paddingBottom: 78,
+
+    borderTopStartRadius: 40,
+    borderTopEndRadius: 40,
+    backgroundColor: COLORS.white
+  },
+  header: {
+    height: 260,
+    paddingHorizontal: 18,
+    paddingVertical: 28,
+
+  },
+
+  description: {
+    fontSize: 28,
+    color: COLORS.white,
+    fontWeight: "normal",
+    paddingTop: 20
+  },
+
+  title: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "bold",
+    color: COLORS.darkBlue,
+    marginBottom: 16
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+
+  icon: {
+    fontSize: 24,
+    color: COLORS.lightBlue,
+    marginRight: 8
+  }
 });
 
 export default App;

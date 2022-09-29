@@ -12,6 +12,8 @@ target 'sismedic' do
     :hermes_enabled => false
   )
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'sismedicTests' do
     inherit! :complete
     # Pods for testing
