@@ -8,7 +8,7 @@ com/sismedic/ReactNativeFlipper.java
  com.sismedic.ReactNativeFlipper$2$1
 com/sismedic/BuildConfig.java
  com.sismedic.BuildConfig
-com/sismedic/MainActivity.java
- com.sismedic.MainActivity
 com/facebook/react/PackageList.java
  com.facebook.react.PackageList
+com/sismedic/MainActivity.java
+ com.sismedic.MainActivity

@@ -3,9 +3,9 @@ import React from 'react'
 
 import COLORS from '../../assets/color/Colors'
 
-const Button = ({ title, handlerOnPress }) => {
+const Button = ({ title, disabled, handlerOnPress }) => {
     return (
-        <TouchableOpacity style={styles.button} activeOpacity={0.6} onPress={handlerOnPress}>
+        <TouchableOpacity style={styles.button} activeOpacity={0.6} onPress={handlerOnPress} disabled={disabled}>
             <Text style={styles.title}>{title}</Text>
         </TouchableOpacity>
     )
@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: COLORS.lightBlue,
         borderRadius: 10
+    },
+    disbled: {
+        opacity: 0.6
     },
     title: {
         color: COLORS.white,

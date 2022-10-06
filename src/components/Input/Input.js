@@ -20,7 +20,7 @@ const Input = ({ label, placeholder, errorMessage, iconName, handlerOnChangeText
                 <Text style={styles.label}>{label}</Text>
             }
 
-            <View style={[styles.inputContainer, { borderColor: errorMessage ? COLORS.red : COLORS.darkBlue }]}>
+            <View style={[styles.inputContainer, { borderColor: errorMessage ? COLORS.lightRed : COLORS.darkBlue }]}>
 
                 {
                     // Validação para verificar se foi enviado uma mensagem de erro que deve alterar o ícone a ser exibido
@@ -76,17 +76,17 @@ const styles = StyleSheet.create({
         color: COLORS.darkBlue,
         fontSize: 20,
         fontWeight: '400',
-        paddingBottom: 7,
+        paddingBottom: 8,
     },
 
     errorMessage: {
         paddingStart: 10,
-        color: COLORS.red,
+        color: COLORS.lightRed,
         textTransform: 'uppercase'
 
     },
     errorIcon: {
-        color: COLORS.red,
+        color: COLORS.lightRed,
         fontSize: 22,
         marginRight: 10
     },

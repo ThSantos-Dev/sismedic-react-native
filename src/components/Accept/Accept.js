@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import CheckBox from 'react-native-check-box'
 import React, { useState } from 'react'
 
-const Accept = ({ text }) => {
+const Accept = ({ text, handleOnClick }) => {
 
     const [isChecked, setIsChecked] = useState(false)
 
@@ -13,6 +13,7 @@ const Accept = ({ text }) => {
                     style={styles.checkbox}
                     onClick={() => {
                         setIsChecked(!isChecked)
+                        handleOnClick(!isChecked)
                     }}
                     isChecked={isChecked}
                 />
@@ -33,10 +34,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     checkbox: {
-        width: 40,
-        height: 40,
+        width: 25,
+        height: 25,
         alignSelf: "center",
-        marginRight: 15,
+        marginRight: 5,
     },
     label: {
         fontSize: 16
