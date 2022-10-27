@@ -4,28 +4,26 @@ import { ImageBackground, Image, StyleSheet, Text, View, SafeAreaView, ScrollVie
 // Constantes
 import COLORS from "./src/assets/color/Colors";
 
-// Components
+// Views
 import Splash from "./src/views/Splash/Splash";
-import Input from "./src/components/Input/Input";
+import RegisterStepOne from "./src/views/Paciente/Register/RegisterStepOne";
+import RegisterStepTwo from "./src/views/Paciente/Register/RegisterStepTwo";
 
-// Ícones
-import IconIonicons from 'react-native-vector-icons/Ionicons';
-import IconZocial from 'react-native-vector-icons/Zocial';
-import IconFoundation from 'react-native-vector-icons/Foundation'
-import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Accept from "./src/components/Accept/Accept";
-import Button from "./src/components/Button/Button";
-import Register from "./src/views/Register/Register";
+
+// Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 
 const App = () => (
-  <SafeAreaView style={styles.safeArea}>
-    {/* <Splash /> */}
-
-    <ScrollView style={styles.scrollView}>
-      <Register />
-    </ScrollView>
-  </SafeAreaView>
+  <NavigationContainer>
+    <Stack.Navigator initialRouteName='Paciente/Cadastro/StepOne'>
+      <Stack.Screen name='Paciente/Cadastro/StepOne' component={RegisterStepOne} options={{title: 'Cadastro 1/2'}}/>
+      <Stack.Screen name='Paciente/Cadastro/StepTwo' component={RegisterStepTwo} options={{title: 'Cadastro 2/2'}}/>
+    </Stack.Navigator>
+  </NavigationContainer>
 );
 
 const styles = StyleSheet.create({
