@@ -8,6 +8,7 @@ import COLORS from "./src/assets/color/Colors";
 import Splash from "./src/views/Splash/Splash";
 import RegisterStepOne from "./src/views/Paciente/Register/RegisterStepOne";
 import RegisterStepTwo from "./src/views/Paciente/Register/RegisterStepTwo";
+import ListAll from "./src/views/Paciente/ListAll/ListAll";
 
 
 // Navigation
@@ -19,9 +20,10 @@ const Stack = createNativeStackNavigator();
 
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName='Paciente/Cadastro/StepOne'>
+    <Stack.Navigator initialRouteName='Paciente/Listagem/Todos'>
       <Stack.Screen name='Paciente/Cadastro/StepOne' component={RegisterStepOne} options={{title: 'Cadastro 1/2'}}/>
       <Stack.Screen name='Paciente/Cadastro/StepTwo' component={RegisterStepTwo} options={{title: 'Cadastro 2/2'}}/>
+      <Stack.Screen name='Paciente/Listagem/Todos' component={ListAll} options={{ title: 'Listagem de pacientes' }} />
     </Stack.Navigator>
   </NavigationContainer>
 );

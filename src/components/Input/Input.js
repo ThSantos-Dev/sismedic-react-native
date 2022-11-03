@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // Cores
 import COLORS from '../../assets/color/Colors';
 
-const Input = ({ label, placeholder, errorMessage, iconName, handlerOnChangeText, handlerOnFocus, children }) => {
+const Input = ({ label, placeholder, errorMessage, iconName, handlerOnChangeText, handlerOnFocus, children, type, maxLength }) => {
 
     return (
         <View style={styles.formContainer}>
@@ -37,6 +37,8 @@ const Input = ({ label, placeholder, errorMessage, iconName, handlerOnChangeText
                     onFocus={handlerOnFocus}
                     placeholder={placeholder}
                     autoCapitalize={'words'}
+                    keyboardType={type}
+                    maxLength={maxLength}
                 />
             </View>
 

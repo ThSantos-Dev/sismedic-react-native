@@ -32,11 +32,6 @@ const RegisterStepOne = ({ navigation }) => {
         accept_terms: false
     })
 
-    const [responsavel, setResponsavel] = useState({
-        nome: '',
-        telefone: ''
-    })
-
     const [errors, setErrors] = useState({
         nome: null,
         email: null,
@@ -45,24 +40,13 @@ const RegisterStepOne = ({ navigation }) => {
     })
 
     // Função responsável por atualizar os dados das states 
-    const handleOnChange = (value, input, user) => {
-        if (user === "paciente") {
-            setPaciente((prevState) => ({ ...prevState, [input]: value }))
-            return
-        }
-
-        setResponsavel((prevState) => ({ ...prevState, [input]: value }))
+    const handleOnChange = (value, input) => {
+        setPaciente((prevState) => ({ ...prevState, [input]: value }))
         return
     }
 
     const nextStep = () => {
-        // Montando um objeto com as informações
-        const data = {
-            paciente: { ...paciente },
-            responsavel: { ...responsavel }
-        }
-
-        navigation.navigate('Paciente/Cadastro/StepTwo', { data })
+        navigation.navigate('Paciente/Cadastro/StepTwo', paciente)
     }
 
     // Valida os campos do Paciente
@@ -103,19 +87,19 @@ const RegisterStepOne = ({ navigation }) => {
 
                             {/* Inputs */}
                             <View>
-                                <Input placeholder='Digite seu nome' handlerOnChangeText={(text) => handleOnChange(text, 'nome', 'paciente')} errorMessage={errors.nome} handlerOnFocus={() => setErrors({ ...errors, nome: null })}>
+                                <Input placeholder='Digite seu nome' handlerOnChangeText={(text) => handleOnChange(text, 'nome')} errorMessage={errors.nome} handlerOnFocus={() => setErrors({ ...errors, nome: null })}>
                                     <IconIonicons name="person" style={styles.icon} />
                                 </Input>
 
-                                <Input placeholder='Digite seu e-mail' handlerOnChangeText={(text) => handleOnChange(text, 'email', 'paciente')} errorMessage={errors.email} handlerOnFocus={() => setErrors({ ...errors, email: null })}>
+                                <Input placeholder='Digite seu e-mail' handlerOnChangeText={(text) => handleOnChange(text, 'email')} errorMessage={errors.email} handlerOnFocus={() => setErrors({ ...errors, email: null })}>
                                     <IconZocial name="email" style={styles.icon} />
                                 </Input>
 
-                                <Input placeholder='Digite seu telefone' handlerOnChangeText={(text) => handleOnChange(text, 'telefone', 'paciente')} errorMessage={errors.telefone} handlerOnFocus={() => setErrors({ ...errors, telefone: null })}>
+                                <Input placeholder='Digite seu telefone' type="numeric" maxLength={10} handlerOnChangeText={(text) => handleOnChange(text, 'telefone')} errorMessage={errors.telefone} handlerOnFocus={() => setErrors({ ...errors, telefone: null })}>
                                     <IconFoundation name="telephone" style={{ ...styles.icon, fontSize: 28, marginRight: 8, paddingStart: 4 }} />
                                 </Input>
 
-                                <Input placeholder='Digite seu celular' handlerOnChangeText={(text) => handleOnChange(text, 'celular', 'paciente')} errorMessage={errors.celular} handlerOnFocus={() => setErrors({ ...errors, celular: null })}>
+                                <Input placeholder='Digite seu celular' type="numeric" maxLength={11} handlerOnChangeText={(text) => handleOnChange(text, 'celular')} errorMessage={errors.celular} handlerOnFocus={() => setErrors({ ...errors, celular: null })}>
                                     <IconMaterialIcons name="smartphone" style={styles.icon} />
                                 </Input>
                             </View>
